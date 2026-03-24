@@ -94,7 +94,7 @@ export default function Page() {
         body{background:var(--bg);color:var(--txt);font-family:'Noto Sans JP',sans-serif;min-height:100vh;padding:28px 16px 80px}
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap');
         .container{max-width:860px;margin:0 auto}
-        header{text-align:center;margin-bottom:24px}
+        header{text-align:center;margin-bottom:24px}f
         header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,7vw,4rem);letter-spacing:.06em;color:var(--gold);line-height:1}
         header p{color:var(--mut);font-size:.78rem;margin-top:4px}
         .panel{background:var(--sur);border:1px solid var(--bdr);border-radius:14px;padding:20px;margin-bottom:14px}
@@ -344,7 +344,7 @@ function AppScript() {
         for (const pt of gridPts) {
           if (aborted) break;
           try {
-            const body = {includedTypes:[cat.t],locationRestriction:{circle:{center:{latitude:pt.lat,longitude:pt.lng},radius}},languageCode:'ja',maxResultCount:20};
+            const body = {includedTypes:[cat.t],locationRestriction:{circle:{center:{latitude:pt.lat,longitude:pt.lng},radius}},languageCode:'ja',_maxPages:3};
             if (cat.k) body.textQuery = cat.k;
             const res = await fetch('/api/places', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
             const data = await res.json();
