@@ -312,7 +312,7 @@ function AppScript() {
     }
 
     function coordToBounds(lat,lng,r){const d=r/111000,dL=d/Math.cos(lat*Math.PI/180);return{north:lat+d,south:lat-d,east:lng+dL,west:lng-dL};}
-    function getAreaBounds(name){if(CITY_COORDS[name]){const[lat,lng]=CITY_COORDS[name];const isPref=name.endsWith('都')||name.endsWith('道')||name.endsWith('府')||name.endsWith('県');const r=isPref?80000:name.endsWith('区')?3000:10000;return coordToBounds(lat,lng,r);}return null;}
+    function getAreaBounds(name){if(CITY_COORDS[name]){const[lat,lng]=CITY_COORDS[name];const isPref=name.endsWith('都')||name.endsWith('道')||name.endsWith('府')||name.endsWith('県');const r=isPref?80000:name.endsWith('区')?6000:10000;return coordToBounds(lat,lng,r);}return null;}
 
     function fmtN(n){return n>=10000?(n/10000).toFixed(n%10000===0?0:1)+'万':n.toLocaleString('ja-JP');}
     function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
